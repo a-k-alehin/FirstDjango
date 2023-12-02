@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
-def homeView(request):
+def view_home(request):
     author = 'Шиховцов'
     text = f'''<h1>"Изучаем django"</h1>
            <strong>Автор</strong>: <i>{author}</i>'''
@@ -18,7 +18,7 @@ about = {
 }
 
 
-def aboutView(request):
+def view_about(request):
     text = f'''
 <div><b>Имя</b>: {about["name_f"]}</div>
 <div><b>Отчество</b>: {about["name_s"]}</div>
@@ -38,15 +38,18 @@ items = [
 ]
 
 
-def itemView(request, item = 0):
-    name = f'Товар с id={item} не найден'
+def view_item(request, id):
+    name = ''
     for i in items:
-        if i["id"] == item:
+        if i["id"] == id:
             name = i["name"]
-    return HttpResponse(name)
+    if name:
+        return HttpResponse(name)
+    else:
+        return HttpResponseNotFound(f'Товар с id={id} не найден')
 
 
-def itemsView(request):
+def view_items(request):
     names = []
     for i in items:
         names.append(f'<li>{i["id"]}: {i["name"]}</li>')

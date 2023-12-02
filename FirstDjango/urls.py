@@ -19,9 +19,9 @@ from django.urls import path
 from MainApp import views
 
 urlpatterns = [
-    path('', views.homeView),
-    path('about/', views.aboutView),
-    path('item/<int:item>/', views.itemView),
-    path('items/', views.itemsView),
+    path('', views.view_home),
+    path('about/', views.view_about),
+    path('item/<int:id>/', views.view_item),
+    path('items/', views.view_items),
     path('admin/', admin.site.urls),
 ]

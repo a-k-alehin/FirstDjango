@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+django_venv/
+__pycashe__/
+*.pyc
+db.*

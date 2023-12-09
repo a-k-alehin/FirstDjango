@@ -27,27 +27,29 @@ def view_about(request):
 
 
 items = [
-   {"id": 1, "name": "Кроссовки abibas", "quantity": 10},
-   {"id": 2, "name": "Куртка кожаная"  , "quantity": 30},
-   {"id": 3, "name": "Coca-cola 1 литр", "quantity": 70},
-   {"id": 4, "name": "Картофель фри"   , "quantity": 20},
-   {"id": 7, "name": "Кепка"           , "quantity": 15},
+   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
+   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
+   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
+   {"id": 7, "name": "Картофель фри" ,"quantity":0},
+   {"id": 8, "name": "Кепка" ,"quantity":124},
 ]
 
 
 def view_item(request, id):
-    txt = ''
+    context = ''
     for i in items:
         if i["id"] == id:
-            txt = f'<h2>{i["name"]}</h2> кол-во: {i["quantity"]} <p><a href="/items/">Назад</a>'
-    if txt:
-        return HttpResponse(txt)
+            context = i
+    if context:
+        return render(request, "item.html", context)
     else:
         return HttpResponseNotFound(f'Товар с id={id} не найден')
 
 
 def view_items(request):
-    names = []
-    for i in items:
-        names.append(f'<li>{i["id"]}: <a href="../item/{i["id"]}">{i["name"]}</a></li>')
-    return HttpResponse('<ul>'+''.join(names)+'</ul>')
+    # names = []
+    # for i in items:
+    #     names.append(f'<li>{i["id"]}: <a href="../item/{i["id"]}">{i["name"]}</a></li>')
+    # return HttpResponse('<ul>'+''.join(names)+'</ul>')
+    context = {"items": items}
+    return render(request, "items.html", context)

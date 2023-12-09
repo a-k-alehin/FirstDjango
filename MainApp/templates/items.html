@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Main App - items</title>
+    <style type="text/css">
+        .container-float {
+            width: 90%;
+            min-width: 350px;
+            max-width: 1100px;
+            margin: 10px auto;
+            }
+        .item {
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px #cccccc;
+            float: left;
+            width: 200px;
+            min-height: 50px;
+        }
+        .item .name {
+            color: #333333;
+            background-image: linear-gradient(#ffffff, #dddddd);
+            margin-bottom: 10px;
+            font-size: 24px;
+            line-height: 25px;
+            text-align: center;
+        }
+    </style>
+      
 </head>
 <body>
-    <h2>Товары</h2>
+<h2>Товары</h2>
 
-    <a href="/">Main App</a>
+<a href="/">Main App</a> / Товары
 
-    <ul>
+<div class="container-float">
     {% for i in items %}
-        <li>{{i.id}}: <a href="../item/{{i.id}}">{{i.name}}</a></li>
+        <div class="item">
+            <div class="name"><a href="../item/{{i.id}}">{{i.name}}</a></div>
+            <div class="descr">{{i.descr}}</div>
+        </div>
     {% endfor %}
-    </ul>
+</div>
 
 </body>
 </html>

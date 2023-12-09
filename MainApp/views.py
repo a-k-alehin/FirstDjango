@@ -1,22 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from MainApp.models import Item
+from django.core.exceptions import ObjectDoesNotExist
 
-# Create your views here.
 def view_home(request):
     return render(request, "index.html")
 
 
-about = {
-    "name_f": "Иван",
-    "name_s": "Петрович",
-    "name_l": "Иванов",
-    "phone": "vasya@mail.ru",
-    "email": "8-923-600-01-02",
-}
-
-
 def view_about(request):
+    about = {
+        "name_f": "Иван",
+        "name_s": "Петрович",
+        "name_l": "Иванов",
+        "phone": "vasya@mail.ru",
+        "email": "8-923-600-01-02",
+    }
     text = f'''
 <div><b>Имя</b>: {about["name_f"]}</div>
 <div><b>Отчество</b>: {about["name_s"]}</div>
@@ -27,23 +25,13 @@ def view_about(request):
     return HttpResponse(text)
 
 
-# items = [
-#    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
-#    {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
-#    {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
-#    {"id": 7, "name": "Картофель фри" ,"quantity":0},
-#    {"id": 8, "name": "Кепка" ,"quantity":124},
-# ]
-
-
 def view_item(request, id):
-    #item = next((i for i in items if i["id"]==id), None)
-    item = Item.objects.get(id=id)
-    if item is not None:
-        context = {"item": item}
-        return render(request, "item.html", context)
-    else:
+    try:
+        item = Item.objects.get(id=id)
+    except ObjectDoesNotExist:
         return HttpResponseNotFound(f'Товар с id={id} не найден')
+    context = {"item": item}
+    return render(request, "item.html", context)    
 
 
 def view_items(request):

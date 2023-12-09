@@ -10,11 +10,11 @@
     <a href="/">Main App</a> / <a href="/items/">Товары</a>
 
     <p>
-        Наименование: <b>{{name}}</b>
+        Наименование: <b>{{item.name}}</b>
     </p>
     <p>
-        {%if quantity %}
-            Количество: {{quantity}}
+        {%if item.quantity %}
+            Количество: {{item.quantity}}
         {%else%}
             Товар отсутствует
         {%endif%}

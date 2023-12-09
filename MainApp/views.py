@@ -36,20 +36,14 @@ items = [
 
 
 def view_item(request, id):
-    context = ''
-    for i in items:
-        if i["id"] == id:
-            context = i
-    if context:
+    item = next((i for i in items if i["id"]==id), None)
+    if item is not None:
+        context = {"item": item}
         return render(request, "item.html", context)
     else:
         return HttpResponseNotFound(f'Товар с id={id} не найден')
 
 
 def view_items(request):
-    # names = []
-    # for i in items:
-    #     names.append(f'<li>{i["id"]}: <a href="../item/{i["id"]}">{i["name"]}</a></li>')
-    # return HttpResponse('<ul>'+''.join(names)+'</ul>')
     context = {"items": items}
     return render(request, "items.html", context)

@@ -13,8 +13,11 @@
         Наименование: <b>{{item.name}}</b>
     </p>
     <p>
-        {%if item.quantity %}
-            Количество: {{item.quantity}}
+        Бренд: <b>{{item.brand}}</b>
+    </p>
+    <p>
+        {%if item.count %}
+            Количество: {{item.count}}
         {%else%}
             Товар отсутствует
         {%endif%}

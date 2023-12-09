@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
+from MainApp.models import Item
 
 # Create your views here.
 def view_home(request):
@@ -26,17 +27,18 @@ def view_about(request):
     return HttpResponse(text)
 
 
-items = [
-   {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
-   {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
-   {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
-   {"id": 7, "name": "Картофель фри" ,"quantity":0},
-   {"id": 8, "name": "Кепка" ,"quantity":124},
-]
+# items = [
+#    {"id": 1, "name": "Кроссовки abibas" ,"quantity":5},
+#    {"id": 2, "name": "Куртка кожаная" ,"quantity":2},
+#    {"id": 5, "name": "Coca-cola 1 литр" ,"quantity":12},
+#    {"id": 7, "name": "Картофель фри" ,"quantity":0},
+#    {"id": 8, "name": "Кепка" ,"quantity":124},
+# ]
 
 
 def view_item(request, id):
-    item = next((i for i in items if i["id"]==id), None)
+    #item = next((i for i in items if i["id"]==id), None)
+    item = Item.objects.get(id=id)
     if item is not None:
         context = {"item": item}
         return render(request, "item.html", context)
@@ -45,5 +47,5 @@ def view_item(request, id):
 
 
 def view_items(request):
-    context = {"items": items}
+    context = {"items": Item.objects.all()}
     return render(request, "items.html", context)

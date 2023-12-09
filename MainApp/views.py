@@ -3,10 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
 def view_home(request):
-    author = 'Шиховцов'
-    text = f'''<h1>"Изучаем django"</h1>
-           <strong>Автор</strong>: <i>{author}</i>'''
-    return HttpResponse(text)
+    return render(request, "index.html")
 
 
 about = {

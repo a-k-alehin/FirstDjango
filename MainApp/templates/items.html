@@ -7,12 +7,13 @@
 <body>
     <h2>Товары</h2>
 
+    <a href="/">Main App</a>
+
     <ul>
     {% for i in items %}
         <li>{{i.id}}: <a href="../item/{{i.id}}">{{i.name}}</a></li>
     {% endfor %}
     </ul>
 
-    <a href="/">На главную</a>
 </body>
 </html>

@@ -5,7 +5,8 @@
     <title>Main App</title>
     {% block style %}
         {# Это общая css для всех страниц #}
-        <link rel="stylesheet" href="style.css">
+        {% load static %}
+        <link rel="stylesheet" href="{%  static 'style.css' %}">
         {# Но каждая страница может содержать доп.уникальные css #}
     {% endblock %}
 </head>

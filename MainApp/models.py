@@ -6,7 +6,7 @@ class Item(models.Model):
     name  = models.CharField(max_length=100)
     brand = models.CharField(max_length=100)
     count = models.PositiveIntegerField()
-    descr = models.CharField(max_length=500, blank=True)
+    descr = models.CharField(max_length=500, blank=True, default="нет описания")
 
     def __repr__(self):
         return f'{self.id} {self.name} {self.brand} {self.count}'

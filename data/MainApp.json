@@ -1,0 +1,42 @@
+[
+{
+    "model": "MainApp.item",
+    "pk": 1,
+    "fields": {
+        "name": "Носки",
+        "brand": "Versachi",
+        "count": 1,
+        "descr": "descr 1"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 2,
+    "fields": {
+        "name": "Галстук",
+        "brand": "Gucci",
+        "count": 2,
+        "descr": "descr 2"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 3,
+    "fields": {
+        "name": "Перчатки",
+        "brand": "Tamagocci",
+        "count": 5,
+        "descr": "descr 3"
+    }
+},
+{
+    "model": "MainApp.item",
+    "pk": 4,
+    "fields": {
+        "name": "Часы",
+        "brand": "Apppple",
+        "count": 0,
+        "descr": "descr 4"
+    }
+}
+]

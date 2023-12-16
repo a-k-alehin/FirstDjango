@@ -14,5 +14,15 @@
 <p>
     Количество: <b>{{ item.count | default:"товара нет на складе" }}</b>
 </p>
+<p>
+    Цвета: <b>
+    {% for c in item.colors.all %}
+        <span class="item_color" style="background-color: {{c.name}}">
+            {{c.name}}
+        </span>;
+    {% endfor %}
+    </b>
+
+</p>
 {% endblock %}
 

@@ -32,12 +32,12 @@
 {% block content %}
 <h2>Товары</h2>
 
-<a href="/">Main App</a> / Товары
+<a href="{% url 'home' %}">Main App</a> / Товары
 
 <div class="container-float">
     {% for i in items %}
         <div class="item">
-            <div class="name"><a href="../item/{{i.id}}">{{i.name}}</a></div>
+            <div class="name"><a href="{% url 'item' i.id %}">{{i.name}}</a></div>
             <div class="descr">{{i.descr}}</div>
         </div>
     {% endfor %}

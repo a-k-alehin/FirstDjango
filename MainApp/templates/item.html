@@ -3,7 +3,7 @@
 {% block content %}
 <h2>Товар</h2>
 
-<a href="/">Main App</a> / <a href="/items/">Товары</a> / Товар
+<a href="{% url 'home' %}">Main App</a> / <a href="{% url 'items' %}">Товары</a> / Товар
 
 <p>
     Наименование: <b>{{item.name}}</b>

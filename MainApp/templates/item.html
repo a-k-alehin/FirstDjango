@@ -1,23 +1,18 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Main App - item</title>
-</head>
-<body>
-    <h2>Товар</h2>
+{% extends 'base.html' %}
 
-    <a href="/">Main App</a> / <a href="/items/">Товары</a> / Товар
+{% block content %}
+<h2>Товар</h2>
 
-    <p>
-        Наименование: <b>{{item.name}}</b>
-    </p>
-    <p>
-        Бренд: <b>{{item.brand}}</b>
-    </p>
-    <p>
-        Количество: <b>{{ item.count | default:"товара нет на складе" }}</b>
-    </p>
-    
-</body>
-</html>
+<a href="/">Main App</a> / <a href="/items/">Товары</a> / Товар
+
+<p>
+    Наименование: <b>{{item.name}}</b>
+</p>
+<p>
+    Бренд: <b>{{item.brand}}</b>
+</p>
+<p>
+    Количество: <b>{{ item.count | default:"товара нет на складе" }}</b>
+</p>
+{% endblock %}
+

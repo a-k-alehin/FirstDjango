@@ -1,37 +1,35 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Main App - items</title>
-    <style type="text/css">
-        .container-float {
-            width: 90%;
-            min-width: 350px;
-            max-width: 1100px;
-            margin: 10px auto;
-            }
-        .item {
-            margin: 0 10px;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px #cccccc;
-            float: left;
-            width: 200px;
-            min-height: 50px;
+{% extends 'base.html' %}
+
+{% block style %}
+<style type="text/css">
+    .container-float {
+        width: 90%;
+        min-width: 350px;
+        max-width: 1100px;
+        margin: 10px auto;
         }
-        .item .name {
-            color: #333333;
-            background-image: linear-gradient(#ffffff, #dddddd);
-            margin-bottom: 10px;
-            font-size: 24px;
-            line-height: 25px;
-            text-align: center;
-        }
-    </style>
-      
-</head>
-<body>
+    .item {
+        margin: 0 10px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px #cccccc;
+        float: left;
+        width: 200px;
+        min-height: 50px;
+    }
+    .item .name {
+        color: #333333;
+        background-image: linear-gradient(#ffffff, #dddddd);
+        margin-bottom: 10px;
+        font-size: 24px;
+        line-height: 25px;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
 <h2>Товары</h2>
 
 <a href="/">Main App</a> / Товары
@@ -44,6 +42,4 @@
         </div>
     {% endfor %}
 </div>
-
-</body>
-</html>
+{% endblock %}
